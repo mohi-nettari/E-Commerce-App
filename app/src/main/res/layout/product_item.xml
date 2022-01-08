@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:id="@+id/parent"
+    app:cardElevation="20dp"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="3dp"
+
+    >
+   <RelativeLayout
+       android:layout_margin="6dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       >
+
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/product_image_item"
+                >
+
+               <TextView
+                   android:id="@+id/product_name_item"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:layout_marginTop="10dp"
+                   android:gravity="center"
+                   android:text="Product name"
+                   android:padding="5dp"
+                   android:fontFamily="@font/poppins_blackitalic"
+                   android:textColor="@color/black"
+                   android:textSize="15sp"
+                    />
+
+               <TextView
+                   android:id="@+id/product_price_item"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:gravity="start"
+                   android:padding="5dp"
+                   android:layout_marginStart="10dp"
+                   android:fontFamily="@font/poppins_re"
+                   android:text="product price"
+                   android:textColor="@color/black"
+                   android:textSize="15sp" />
+
+
+            </LinearLayout>
+
+
+      <com.google.android.material.imageview.ShapeableImageView
+          android:id="@+id/product_image_item"
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:layout_alignParentTop="true"
+          android:layout_margin="1dp"
+          android:scaleType="centerCrop"
+          app:shapeAppearance="@style/ShapeAppearanceOverlay.Avatar" />
+
+
+
+   </RelativeLayout>
+
+
+
+
+
+
+
+
+
+<!--   </RelativeLayout>-->
+
+
+
+
+</androidx.cardview.widget.CardView>

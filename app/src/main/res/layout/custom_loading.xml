@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@drawable/raduis3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:id="@+id/parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>
+<RelativeLayout
+    android:layout_marginStart="70dp"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+
+        >
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+
+            />
+
+        <TextView
+            android:id="@+id/textView"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:text="Loading...\nPleas wait for a minute"
+            android:textSize="20dp"
+            android:background="@drawable/et_sh4"
+            android:textColor="@color/a2"
+            android:fontFamily="@font/poppins_re"
+          />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

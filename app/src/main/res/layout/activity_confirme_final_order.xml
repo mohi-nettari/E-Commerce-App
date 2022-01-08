@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmeFinalOrderActivity">
+
+    <RelativeLayout
+        android:id="@+id/r1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/a2">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/backconfirme"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/poppins_blackitalic"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
+            <TextView
+                android:id="@+id/product_name_d3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="Confirme your final order"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/raduis_lay"
+
+        >
+
+        <TextView
+            android:id="@+id/txtconfirme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/et_sh4"
+            android:fontFamily="@font/poppins_re"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="Pleas write your shipment details"
+            android:textAlignment="center"
+            android:textColor="@color/a2"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txttotalconfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtconfirme"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="90dp"
+            android:background="@drawable/et_shadows"
+            android:fontFamily="@font/poppins_re"
+            android:gravity="center"
+            android:text="Total price : "
+            android:textAlignment="center"
+            android:textColor="@color/a2"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txttotalconfirm"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/et_shadows"
+                android:drawableStart="@drawable/ic_percson"
+                android:drawablePadding="12dp"
+                android:elevation="9dp"
+                android:fontFamily="@font/poppins_re"
+                android:hint="Your name : "
+                android:padding="12dp" />
+
+            <EditText
+                android:id="@+id/etphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/et_shadows"
+                android:drawableStart="@drawable/ic_phone"
+                android:drawablePadding="12dp"
+                android:elevation="9dp"
+                android:fontFamily="@font/poppins_re"
+                android:hint="Your phone number : "
+                android:padding="12dp" />
+
+            <EditText
+                android:id="@+id/etadress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/et_shadows"
+                android:drawableStart="@drawable/ic_home"
+                android:drawablePadding="12dp"
+                android:elevation="9dp"
+                android:hint="Your home adress : "
+                android:padding="12dp" />
+
+            <EditText
+                android:id="@+id/etcity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/et_shadows"
+                android:drawableStart="@drawable/ic_city"
+                android:drawablePadding="12dp"
+                android:elevation="9dp"
+                android:fontFamily="@font/poppins_re"
+                android:hint="Your city name : "
+                android:padding="12dp" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnconfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="90dp"
+            android:background="@drawable/et_sh5"
+            android:fontFamily="@font/poppins_re"
+            android:padding="20dp"
+            android:text="Confirm"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -34,12 +34,12 @@ public class AuthViewModel extends AndroidViewModel{
        // firebaseUserMutableLiveData = repository.getFirebaseUserMutableLiveData();
     }
 
-    public void signUp(String email , String pass ,String username,String isAdmin){
-        repository.signUp(email, pass , username,isAdmin);
+    public void signUp(String email , String pass ,String username,String isAdmin,String admincode){
+        repository.signUp(email, pass , username,isAdmin,admincode);
     }
-    public void signIn(String email, String pass,String isAdmin){
+    public void signIn(String email, String pass,String isAdmin,String AdminCode){
 
-        repository.signIn(email, pass , isAdmin);
+        repository.signIn(email, pass , isAdmin,AdminCode);
     }
     public void signOut(){
         repository.signOut();

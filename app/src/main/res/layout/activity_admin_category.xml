@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/squar_shape3"
-    tools:context=".AdminCategoryActivity"
+    tools:context=".Admin.AdminCategoryActivity"
     tools:ignore="NotSibling">
 
 

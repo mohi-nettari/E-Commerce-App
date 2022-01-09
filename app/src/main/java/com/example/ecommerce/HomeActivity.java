@@ -2,9 +2,7 @@ package com.example.ecommerce;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -12,23 +10,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import com.bumptech.glide.Glide;
+import com.example.ecommerce.Admin.AdminCategoryActivity;
+import com.example.ecommerce.Admin.AdminMaintainProductActivity;
+import com.example.ecommerce.Admin.AdminSettingsActivity;
 import com.example.ecommerce.Model.User;
 import com.example.ecommerce.Model.product;
 import com.example.ecommerce.ViewHolder.ProductViewHolder;
 import com.example.ecommerce.ViewModel.AuthViewModel;
-import com.example.ecommerce.prevalent.prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -41,7 +36,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ecommerce.databinding.ActivityHomeBinding;
@@ -55,8 +49,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
-
-import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -86,7 +78,7 @@ public class HomeActivity extends AppCompatActivity
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             // moveTaskToBack(true);
             if (type == "admin"){
-                Intent intent = new Intent(HomeActivity.this,AdminCategoryActivity.class);
+                Intent intent = new Intent(HomeActivity.this, AdminCategoryActivity.class);
                 startActivity(intent);
             }else {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -107,6 +99,19 @@ public class HomeActivity extends AppCompatActivity
         pref = FirebaseDatabase.getInstance().getReference().child("Products");
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 //
+
+        if (firebaseUser == null) {
+            Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+            startActivity(i);
+            finish();
+        }
+        if(!(firebaseUser.isEmailVerified())){
+            Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+            FirebaseAuth.getInstance().signOut();
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            finish();
+        }
         FirebaseRecyclerOptions<product> options =
                 new FirebaseRecyclerOptions.Builder<product>()
                 .setQuery(pref,product.class).build();
@@ -236,11 +241,7 @@ adapter.startListening();
             finish();
         }
         //checking for users existing : saving users
-        if (firebaseUser == null) {
-            Intent i = new Intent(HomeActivity.this, LoginActivity.class);
-            startActivity(i);
-            finish();
-        }
+
 
     }
 
@@ -451,9 +452,17 @@ adapter.startListening();
                 break;
 
             case R.id.nav_settings:
-                Toast.makeText(this, "Nav settings Is clicked", Toast.LENGTH_SHORT).show();
-              Intent in = new Intent(HomeActivity.this, SettingsActivity.class);
-               startActivity(in);
+                if (type == "admin"){
+                    Toast.makeText(this, "Nav settings Is clicked", Toast.LENGTH_SHORT).show();
+                    Intent in = new Intent(HomeActivity.this, AdminSettingsActivity.class);
+                    in.putExtra("admin" ,"admin");
+                    startActivity(in);
+                }else {
+                    Toast.makeText(this, "Nav settings Is clicked", Toast.LENGTH_SHORT).show();
+                    Intent in = new Intent(HomeActivity.this, SettingsActivity.class);
+                    startActivity(in);
+                }
+
                 break;
 
             case R.id.nav_logout:

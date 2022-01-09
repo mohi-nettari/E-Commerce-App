@@ -27,7 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class registerActivity extends AppCompatActivity {
 
     private Button creataccbtn,fb_btn,google_btn;
-    private EditText nameet,emailet,passet,passet2;
+    private EditText nameet,emailet,passet,passet2,admincode;
     private TextView admin,notadmin;
     private FirebaseAuth firebaseAuth;
     private AuthViewModel viewModel;
@@ -68,6 +68,7 @@ public class registerActivity extends AppCompatActivity {
         signin = findViewById(R.id.signintxt);
         admin = findViewById(R.id.create_Admin_panel);
         notadmin = findViewById(R.id.create_notAdmin_panel);
+        admincode = findViewById(R.id.register_admincode_et);
 
         back = findViewById(R.id.backreg);
 
@@ -97,11 +98,20 @@ public class registerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 progressDialog.show();
 
+                String creatkind =creataccbtn.getText().toString();
                 String email = emailet.getText().toString();
                 String password = passet.getText().toString();
                 String password2 = passet2.getText().toString();
                 String userName = nameet.getText().toString();
 
+                String code = admincode.getText().toString();
+                if (creatkind.equals("Admin Create Account")){
+                    if(TextUtils.isEmpty(code)){
+                        nameet.setError("Please Enter Your Name");
+                        progressDialog.dismiss();
+                    }
+
+                }
                 if(TextUtils.isEmpty(userName)){
                     nameet.setError("Please Enter Your Name");
                     progressDialog.dismiss();
@@ -128,7 +138,8 @@ public class registerActivity extends AppCompatActivity {
                     return;
                 }
 
-                    viewModel.signUp(email,password,userName,creataccbtn.getText().toString());
+                    viewModel.signUp(email,password,userName,creatkind,code);
+
 
 
 
@@ -151,6 +162,7 @@ public class registerActivity extends AppCompatActivity {
                 creataccbtn.setText("Create Account");
                 admin.setVisibility(View.VISIBLE);
                 notadmin.setVisibility(View.GONE);
+                admincode.setVisibility(View.GONE);
             }
         });
         //admin text events
@@ -160,6 +172,7 @@ public class registerActivity extends AppCompatActivity {
                 creataccbtn.setText("Admin Create Account");
                 admin.setVisibility(View.GONE);
                 notadmin.setVisibility(View.VISIBLE);
+                admincode.setVisibility(View.VISIBLE);
             }
         });
 

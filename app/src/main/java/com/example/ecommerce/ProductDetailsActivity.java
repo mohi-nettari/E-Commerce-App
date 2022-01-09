@@ -59,6 +59,7 @@ ppname2 = findViewById(R.id.product_name_d3);
         mains = findViewById(R.id.mains);
         plus = findViewById(R.id.plus);
 
+        orderstate();
 
                // getSupportActionBar().hide();
 

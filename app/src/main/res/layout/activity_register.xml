@@ -50,7 +50,7 @@
         android:text="Mohi Store"
         android:gravity="center"
             android:fontFamily="@font/poppins_blackitalic"
-            android:layout_marginTop="65dp"
+            android:layout_marginTop="20dp"
         android:padding="10dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
@@ -144,6 +144,28 @@
             android:drawablePadding="12dp"
             android:elevation="9dp"
             />
+
+        <EditText
+            android:id="@+id/register_admincode_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/et_sh4"
+            android:hint="Enter admin code..."
+            android:inputType="textPassword"
+            android:visibility="gone"
+            android:ems="10"
+            android:padding="12dp"
+            android:textColor="@color/a2"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:drawableStart="@drawable/ic_key_24"
+            android:drawablePadding="12dp"
+            android:elevation="9dp"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -174,15 +196,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal">
-
-
             <!--            <CheckBox-->
             <!--                android:id="@+id/checkBox"-->
             <!--                android:layout_width="wrap_content"-->
             <!--                android:layout_height="wrap_content"-->
             <!--                android:text="remember me"-->
             <!-- />-->
-
             <TextView
                 android:id="@+id/create_notAdmin_panel"
                 android:layout_width="wrap_content"
@@ -205,7 +224,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="40dp"
                 android:padding="10dp"
-                android:fontFamily="@font/poppins_re"
+                android:fontFamily="@font/poppins_blackitalic"
                 android:text="You'r an admin?"
                 android:textColor="@color/a2"
                 android:textSize="18sp"

@@ -2,8 +2,8 @@ package com.example.ecommerce;
 
 import android.app.ActionBar;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -16,12 +16,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.ecommerce.Admin.AdminCategoryActivity;
 import com.example.ecommerce.Model.User;
 import com.example.ecommerce.ViewModel.AuthViewModel;
-import com.example.ecommerce.prevalent.prevalent;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -32,7 +38,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText emailet,passwordet;
+    private EditText emailet,passwordet,admin_code;
     private TextView forgetpass,admin,notadmin;
     private Button loginbtn,fb_btn,google_btn;
     private CheckBox remember_me;
@@ -118,6 +124,61 @@ public class LoginActivity extends AppCompatActivity {
 //       fb_btn = findViewById(R.id.login_fb_btn);
         google_btn = findViewById(R.id.login_google_btn);
       signup = findViewById(R.id.signintxt);
+      admin_code = findViewById(R.id.login_admin_code);
+
+      firebaseAuth = FirebaseAuth.getInstance();
+
+
+
+
+
+      //forget password event
+      forgetpass.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+
+              //getting the user's email
+              EditText resetmail = new EditText(v.getContext());
+           //Building an alert dialog
+              AlertDialog.Builder passwordemailreset = new AlertDialog.Builder(v.getContext());
+              passwordemailreset.setTitle("Reset your password");
+              passwordemailreset.setMessage("Enter your email to received reset password link.");
+              passwordemailreset.setView(resetmail);
+
+              //on yes clicked we will sent an resiting link
+              passwordemailreset.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialog, int which) {
+                      String email = resetmail.getText().toString();
+                      firebaseAuth.sendPasswordResetEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
+                          @Override
+                          public void onSuccess(Void unused) {
+                              Toast.makeText(LoginActivity.this, "Reset link is sent.", Toast.LENGTH_SHORT).show();
+                          }
+                      }).addOnFailureListener(new OnFailureListener() {
+                          @Override
+                          public void onFailure(@NonNull Exception e) {
+                              Toast.makeText(LoginActivity.this, "Reset link doesn't sent \n"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                          }
+                      });
+                  }
+              });
+
+              //on no clicked closing alert dialog
+              passwordemailreset.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialog, int which) {
+
+                      passwordemailreset.create().dismiss();
+                  }
+              });
+
+              passwordemailreset.create().show();
+
+          }
+      });
+
+
 
       database = FirebaseDatabase.getInstance();
 
@@ -168,6 +229,17 @@ public class LoginActivity extends AppCompatActivity {
                 progressDialog.show();
                 String email = emailet.getText().toString();
                 String password = passwordet.getText().toString();
+                String admincode = "a";
+
+
+                if(isAdmin.equals("Admin Log in")){
+                    admincode =  admin_code.getText().toString();
+                    if(admincode == "a"){
+                        emailet.setError("Pleas enter admin code");
+                        progressDialog.dismiss();
+                        return;
+                    }
+                }
 
                 if(TextUtils.isEmpty(email)){
                     emailet.setError("Pleas enter your email");
@@ -182,11 +254,14 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("login","done3");
 
 
-                    Log.d("login","done4");
+                Log.d("login","done4");
 
-                    authViewModel.signIn(email,password,isAdmin);
+                authViewModel.signIn(email,password,isAdmin,admincode);
+//                progressDialog.dismiss();
 
-                }
+
+
+            }
 
 
         });
@@ -196,8 +271,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loginbtn.setText("Admin Log in");
+                admin_code.setVisibility(View.VISIBLE);
                 admin.setVisibility(View.GONE);
                 notadmin.setVisibility(View.VISIBLE);
+
+
             }
         });
 

@@ -20,6 +20,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
             android:layout_margin="5dp"
+            android:tint="@color/darkwhite"
             android:src="@drawable/backarrow"/>
 
         <TextView
@@ -30,7 +31,7 @@
             android:fontFamily="@font/poppins_black"
             android:text="User Product : "
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/darkwhite"
             android:textSize="18dp" />
 
         <TextView
@@ -43,7 +44,7 @@
             android:fontFamily="@font/poppins_black"
             android:gravity="center"
             android:text="User toatl : "
-            android:textColor="@color/white"
+            android:textColor="@color/darkwhite"
             android:textSize="18dp" />
 
     </RelativeLayout>

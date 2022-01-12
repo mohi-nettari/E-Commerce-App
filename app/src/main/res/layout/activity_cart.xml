@@ -19,7 +19,8 @@
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_margin="5dp"
-            android:src="@drawable/backarrow" />
+            android:src="@drawable/backarrow"
+            app:tint="@color/darkwhite" />
 
         <TextView
             android:id="@+id/totalc"
@@ -29,7 +30,7 @@
             android:fontFamily="@font/poppins_blackitalic"
             android:text="Total Price:"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/darkwhite"
             android:textSize="20dp" />
 
     </RelativeLayout>

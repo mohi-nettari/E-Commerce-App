@@ -35,19 +35,22 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
+        android:tint="@color/darkwhite"
         android:src="@drawable/backarrow" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:fontFamily="@font/poppins_blackitalic"
         android:layout_centerInParent="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="80dp"
+        android:fontFamily="@font/poppins_blackitalic"
         android:gravity="center"
-        android:layout_margin="80dp"
-        />
+        android:textColor="@color/darkwhite"
+        android:text="Settings"
+           android:textSize="20sp" />
 
 </RelativeLayout>
 
@@ -60,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/app_bar_settings"
         android:background="@drawable/raduis2"
-        android:padding="5dp">
+        android:padding="10dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image_settings"
@@ -84,7 +87,7 @@
             android:fontFamily="@font/poppins_blackitalic"
             android:padding="2dp"
             android:text="Change profile image"
-            android:textColor="@color/black"
+            android:textColor="@color/darkwhite"
             android:textSize="16sp" />
     </RelativeLayout>
 

@@ -18,7 +18,8 @@
             android:layout_height="35dp"
             android:layout_alignParentStart="true"
             android:layout_margin="5dp"
-            android:src="@drawable/backarrow" />
+            android:src="@drawable/backarrow"
+            app:tint="@color/darkwhite" />
 
         <TextView
             android:id="@+id/neworders"

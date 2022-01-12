@@ -272,9 +272,9 @@ public class AdminSettingsActivity extends AppCompatActivity {
                             if((users.getUserId().equals(FirebaseAuth.getInstance().getUid()))){
                                 us = users;
                                 Picasso.get().load(us.getImage()).into(proimage_s);
-                                name_s.setText("name :"+us.getUserName());
-                                phone_s.setText("Email:"+us.getEmail());
-                                password_S.setText("Password:"+us.getPassword());
+                                name_s.setText(us.getUserName());
+                                phone_s.setText(us.getEmail());
+                                password_S.setText(us.getPassword());
 
                             }
                         }
@@ -295,7 +295,7 @@ public class AdminSettingsActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot :snapshot.getChildren() ) {
                     String code = dataSnapshot.getValue().toString();
-                    admincode_s.setText("admin code:"+code);
+                    admincode_s.setText(code);
                 }
             }
 

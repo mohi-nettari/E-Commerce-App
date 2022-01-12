@@ -7,8 +7,8 @@
     android:padding="10dp"
     android:id="@+id/parent"
     app:cardElevation="20dp"
-    app:cardCornerRadius="10dp"
-    android:layout_margin="3dp"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="5dp"
 
     >
    <RelativeLayout
@@ -37,8 +37,8 @@
                    android:text="Product name"
                    android:padding="5dp"
                    android:fontFamily="@font/poppins_blackitalic"
-                   android:textColor="@color/black"
-                   android:textSize="15sp"
+                   android:textColor="@color/colorPrimaryDark"
+                   android:textSize="17sp"
                     />
 
                <TextView
@@ -50,7 +50,7 @@
                    android:layout_marginStart="10dp"
                    android:fontFamily="@font/poppins_re"
                    android:text="product price"
-                   android:textColor="@color/black"
+                   android:textColor="@color/colorPrimaryDark"
                    android:textSize="15sp" />
 
 

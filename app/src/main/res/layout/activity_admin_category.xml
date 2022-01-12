@@ -29,7 +29,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_margin="3dp"
                 android:fontFamily="@font/poppins_blackitalic"
-                android:src="@drawable/ic_baseline_arrow_back_24" />
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:tint="@color/darkwhite" />
 
             <TextView
                 android:id="@+id/product_name_d3"
@@ -41,7 +42,7 @@
                 android:fontFamily="@font/poppins_black"
                 android:gravity="center"
                 android:text="Admin management center"
-                android:textColor="@color/black"
+                android:textColor="@color/darkwhite"
                 android:textSize="18sp" />
         </LinearLayout>
     </RelativeLayout>
@@ -467,6 +468,7 @@
                 android:fontFamily="@font/poppins_re"
                 android:layout_margin="5dp"
                 android:text="products"
+                android:textColor="@color/darkwhite"
                 android:textSize="10dp" />
 
             <Button
@@ -478,6 +480,7 @@
                 android:background="@drawable/squar_btn3"
                 android:fontFamily="@font/poppins_re"
                 android:text="orders"
+                android:textColor="@color/darkwhite"
                 android:textSize="10dp" />
 
             <Button
@@ -488,6 +491,7 @@
                 android:background="@drawable/squar_btn3"
                 android:fontFamily="@font/poppins_re"
                 android:text="Log out"
+                android:textColor="@color/darkwhite"
                 android:textSize="10dp" />
         </LinearLayout>
 
